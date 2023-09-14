@@ -180,6 +180,8 @@ window.addEventListener("load", function() {
         var analyser = context.createAnalyser();
         var loud = 0;
         var canvas = document.getElementById("canvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
         var ctx = canvas.getContext("2d");
         src.connect(analyser);
         var gn = context.createGain();
@@ -196,12 +198,6 @@ window.addEventListener("load", function() {
         console.log(analyser);
         var dataArray = new Uint8Array(bufferLength);
         var dataArray1 = new Uint8Array(fft_Size);
-        var maxHeight = canvas.height / 2;
-        var WIDTH = canvas.width;
-        var HEIGHT = canvas.height;
-        var barWidth = WIDTH / bufferLength;
-        var barHeight;
-
         function renderFrame() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
