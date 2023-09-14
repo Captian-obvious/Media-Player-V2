@@ -3,17 +3,6 @@ const sin = Math.sin;
 const π = Math.PI;
 var urlParameter = false;
 
-function ease(t) {
-    return sin((t * π) / 2);
-}
-
-function draw(src) {
-    var myRectangle = new Image();
-    myRectangle.src = src;
-    myRectangle.onload = function() {};
-    return myRectangle;
-};
-
 function replaceurl(paramText) {
     var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?" + paramText;
     window.history.pushState({
@@ -26,17 +15,6 @@ function clearArray(array) {
         array.pop();
     }
 }
-
-function animate(myRectangle, canvas, context, startTime) {
-    var time = new Date().getTime() - startTime;
-    var amplitude = 150;
-    var period = 5000;
-    var centerY = canvas.height / 2 - myRectangle.height / 2;
-    var nextY = amplitude * sin((time * 2 * π) / period) + centerY;
-    myRectangle.Y = nextY;
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(myRectangle)
-};
 
 function getRMS(arr) {
     var square = 0;
@@ -224,11 +202,11 @@ window.addEventListener("load", function() {
             gn.gain.setValueAtTime(vol.value / 100, audio.currentTime);
             for (var i = 0; i < bufferLength; i++) {
                 /*barHeight = dataArray[i]*/
-                barHeight = (dataArray[i] / 255) * 60;
+                barHeight = (dataArray[i] / 255) * maxHeight;
                 ctx.save();
                 ctx.translate(centerX, centerY);
                 ctx.rotate(90 + i * ((Math.PI * 2) / bufferLength));
-                var r = (barHeight / 60) * 255 + 25 * (i / bufferLength);
+                var r = (barHeight / maxHeight) * 255 + 25 * (i / bufferLength);
                 var g = 250 * (i / bufferLength);
                 var b = 50;
                 ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")"; /*ctx.fillRect(0,0+rad, barWidth, barHeight/4.3)*/
