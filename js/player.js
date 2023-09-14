@@ -1,20 +1,16 @@
+//CONSTANTS
 const ID3 = window.jsmediatags;
 const sin = Math.sin;
 const π = Math.PI;
+//VARIABLES
 var urlParameter = false;
-
+//FUNCTIONS
 function replaceurl(paramText) {
     var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?" + paramText;
     window.history.pushState({
         path: newurl
     }, "", newurl)
 };
-
-function clearArray(array) {
-    while (array.length > 0) {
-        array.pop();
-    }
-}
 
 function getRMS(arr) {
     var square = 0;
@@ -34,6 +30,7 @@ function calcRMSColor(rms) {
     let ret = intermed * 150;
     return ret
 };
+//MAIN
 window.addEventListener("load", function() {
     var file = document.getElementById("thefile");
     var filetitle = document.getElementById("file-label");
