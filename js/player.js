@@ -180,7 +180,7 @@ window.addEventListener("load", function() {
             canvas.height = window.innerHeight;
             const centerX = canvas.width / 2;
             const centerY = canvas.height / 2;
-            var maxHeight = canvas.height / 2;
+            var maxHeight = canvas.height / 3;
             var WIDTH = canvas.width;
             var HEIGHT = canvas.height;
             var barWidth = (WIDTH / bufferLength)-1;
