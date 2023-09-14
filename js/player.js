@@ -203,6 +203,15 @@ window.addEventListener("load", function() {
         var barHeight;
 
         function renderFrame() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            var maxHeight = canvas.height / 2;
+            var WIDTH = canvas.width;
+            var HEIGHT = canvas.height;
+            var barWidth = (WIDTH / bufferLength)-1;
+            var barHeight;
             requestAnimationFrame(renderFrame);
             analyser.getByteFrequencyData(dataArray);
             analyser.getByteTimeDomainData(dataArray1);
@@ -215,7 +224,7 @@ window.addEventListener("load", function() {
             ctx.globalAlpha = 0.3;
             ctx.fillRect(0, 0, WIDTH, HEIGHT);
             ctx.globalAlpha = 1;
-            let rad = loud / 7;
+            let rad = loud/255 * maxHeight;
             gn.gain.setValueAtTime(vol.value / 100, audio.currentTime);
             for (var i = 0; i < bufferLength; i++) {
                 /*barHeight = dataArray[i]*/
