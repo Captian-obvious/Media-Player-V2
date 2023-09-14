@@ -158,13 +158,12 @@ window.addEventListener("load", function() {
         var analyser = context.createAnalyser();
         var loud = 0;
         var canvas = document.getElementById("canvas");
+        var scale = window.devicePixelRatio; 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         var ctx = canvas.getContext("2d");
         src.connect(analyser);
         var gn = context.createGain();
-        const centerX = canvas.width / 2;
-        const centerY = canvas.height / 2;
         analyser.connect(gn);
         gn.connect(context.destination);
         var fft_Size = 512;
@@ -212,7 +211,7 @@ window.addEventListener("load", function() {
                 ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")"; /*ctx.fillRect(0,0+rad, barWidth, barHeight/4.3)*/
                 ctx.fillRect(0, 0 + rad, barWidth, barHeight);
                 ctx.fillStyle = "rgb(255,255,255)"; /*ctx.fillRect(0,0+rad+barHeight/4.3, barWidth, 1)*/
-                ctx.fillRect(0, 0 + rad + barHeight, barWidth, 1);
+                ctx.fillRect(0, 0 + rad + barHeight, barWidth, 4);
                 ctx.restore();
             };
             ctx.beginPath();
