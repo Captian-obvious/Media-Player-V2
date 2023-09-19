@@ -13,4 +13,4 @@ setTimeout(function(){
             }
         })
     }
-},300)
+},3)
