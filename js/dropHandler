@@ -1,0 +1,15 @@
+window.siteData = {}
+function handleDragOver(ev){
+    dropzone.handleDragOver(ev,function(ev){
+        console.log('File(s) in drop zone');
+    })
+}
+function handleDrop(ev){
+    dropzone.handleDrop(ev,function(ev){
+        if (ev.dataTransfer.items) {
+            var files = dropzone.getFiles(ev.dataTransfer.items)
+            console.log(files)
+            window.siteData.files = files
+        }
+    })
+}
