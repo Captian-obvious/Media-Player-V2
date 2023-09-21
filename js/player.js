@@ -31,6 +31,7 @@ function calcRMSColor(rms) {
     return ret
 };
 //MAIN
+window.MediaPlayer = {};
 window.addEventListener("load", function() {
     var file = document.getElementById("thefile");
     var filetitle = document.getElementById("file-label");
@@ -55,9 +56,9 @@ window.addEventListener("load", function() {
         };
         return min + ":" + sec
     };
-    file.onchange = function() {
+    window.MediaPlayer.Play = function(thefiles) {
         var files = [];
-        files = this.files;
+        files = thefiles
         var index=0;
         var colorValue = "#ff0000";
         dataimage.setAttribute("data-mediathumb-url", URL.createObjectURL(files[0]));
@@ -255,6 +256,9 @@ window.addEventListener("load", function() {
         });
         audio.addEventListener("play", function() {
             button.className = "MediaPlayerIcon icon-pause";
-        })
-    }
+        });
+    };
+    file.onchange = function(){
+        MediaPlayer.Play(this.files)
+    };
 });
