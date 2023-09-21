@@ -33,8 +33,8 @@
         <title>MediaPlayer-V2 - Main App</title>
     </head>
     <body>
-        <div id='drop_zone' ondragover='funcs.handleDragOver(event)' ondrop='funcs.handleDrop(event)' style='width: 100%; height: 100%; text-align: center; position: absolute; top: 0px; left: 0px;' hidden>
-            Drop Files Here!
+        <div id='drop_zone' ondragover='funcs.handleDragOver(event)' ondrop='funcs.handleDrop(event)' style='z-index: 0; width: 100%; height: 100%; text-align: center; position: absolute; top: 0px; left: 0px;' hidden>
+            <h1 class='red1'>Drop Files Here!</h1>
         </div>
         <label for="thefile" id="file-label">
             Choose Audio File
