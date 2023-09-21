@@ -21,6 +21,9 @@ funcs.handleDrop = function(ev){
             var files = dropzone.getFiles(ev.dataTransfer.items);
             console.log(files);
             window.siteData.files = files;
+            if (window.MediaPlayer!=null) {
+                MediaPlayer.Play(files);
+            };
         };
     });
 };
