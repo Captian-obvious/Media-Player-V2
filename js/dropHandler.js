@@ -1,10 +1,12 @@
 window.siteData = {}
 document.addEventListener('dragover',function(event){
     document.getElementById('drop_zone').hidden = false;
+    document.getElementById('drop_zone').style.zIndex: 3;
 });
 document.addEventListener('dragleave',function(event){
     setTimeout(function(){
         document.getElementById('drop_zone').hidden = true;
+        document.getElementById('drop_zone').style.zIndex: 0;
     },1000);
 });
 window.funcs = {};
