@@ -57,8 +57,7 @@ window.addEventListener("load", function() {
         return min + ":" + sec
     };
     window.MediaPlayer.Play = function(thefiles) {
-        var files = [];
-        files = thefiles
+        var files = thefiles;
         var index=0;
         var colorValue = "#ff0000";
         dataimage.setAttribute("data-mediathumb-url", URL.createObjectURL(files[0]));
