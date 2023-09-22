@@ -258,6 +258,9 @@ window.addEventListener("load", function() {
         });
     };
     file.onchange = function(){
-        MediaPlayer.Play(this.files)
+        MediaPlayer.Play(this.files);
+        setTimeout(function(){
+            file.value = "";
+        },300);
     };
 });
