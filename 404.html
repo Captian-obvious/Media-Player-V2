@@ -36,7 +36,7 @@
         <script>
             setTimeout(function(){
                 if (document.referrer!=''){
-                    document.location.replace('/error?code=404&id='+window.btoa(document.referrer);
+                    document.location.replace('/error?code=404&id='+window.btoa(document.referrer));
                 } else {
                     document.location.replace('/error?code=404');
                 }
