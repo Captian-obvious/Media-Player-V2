@@ -26,23 +26,21 @@ window.addEventListener("load", function () {
     var info = getQuery('info');
     var vis = getQuery('visual');
     var visType = getQuery('vType');
-    h = (Number(height) || 16);
-    w = (Number(width) || 30);
-    if (h!=null && w!=null) {
+    if (height!=null && width!=null) {
+        h = (Number(height) || 16);
+        w = (Number(width) || 30);
         var objHeight = h;
         var objWidth = w;
-        if (vis==='true') {
-            container.innerHTML += `
-            <canvas id="canvas"></canvas>\n
-            `;
+        if (vis!=null && vis==='true') {
+            container.innerHTML += `<canvas id="canvas"></canvas>\n`;
         };
-        if (info==='true') {
+        if (info!=null && info==='true') {
             container.innerHTML += `
             <div id='filetitle'></div>\n
             <div id="album"></div>\n
             `;
         };
-        if (controls==='true') {
+        if (controls!=null && controls==='true') {
             container.innerHTML += `
             <div id='MediaPlayerControls'>\n
                 <div id="MediaPlayerIcon-icon-play" class="MediaPlayerIcon icon-play" data-mediathumb-url="src"></div>\n
@@ -53,10 +51,8 @@ window.addEventListener("load", function () {
             </div>\n
             `;
         };
-        if (info==='true') {
-            container.innerHTML += `
-            <div id="time-position"></div>\n
-            `;
+        if (info!=null && info==='true') {
+            container.innerHTML += `<div id="time-position"></div>\n`;
         };
         var ft = document.getElementById('filetitle');
         var al = document.getElementById('album');
