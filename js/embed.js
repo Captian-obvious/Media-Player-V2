@@ -32,9 +32,14 @@ window.addEventListener("load", function () {
         var objHeight = h;
         var objWidth = w;
         if (controls==='true') {
-            
+            container.innerHTML = `
+            <div id='MediaPlayerControls'>\n
+                <input id='MediaPlayerControl-seekbar' type='range'></input>\n
+                
+            </div>\n
+            `;
         };
     } else {
-        container.innerHTML = '<p class='red1'>Please provide a valid width / height</p>'
+        container.innerHTML = '<p class='red1'>Invalid width / height</p>';
     };
 };
