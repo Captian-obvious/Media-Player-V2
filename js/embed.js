@@ -26,8 +26,8 @@ window.addEventListener("load", function () {
     var info = getQuery('info');
     var vis = getQuery('visual');
     var visType = getQuery('vType');
-    h = (Number(height) || 16)
-    w = (Number(width) || 30)
+    h = (Number(height) || 16);
+    w = (Number(width) || 30);
     if (h!=null && w!=null) {
         var objHeight = h;
         var objWidth = w;
