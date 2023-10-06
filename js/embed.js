@@ -33,7 +33,14 @@ window.addEventListener("load", function () {
         var objWidth = w;
         if (vis==='true') {
             container.innerHTML += `
+            <canvas id="canvas"></canvas>\n
             `
+        };
+        if (info==='true') {
+            container.innerHTML += `
+            <div id='filetitle'></div>\n
+            <div id="album"></div>\n
+            `;
         };
         if (controls==='true') {
             container.innerHTML += `
@@ -46,6 +53,16 @@ window.addEventListener("load", function () {
             </div>\n
             `;
         };
+        if (info==='true') {
+            container.innerHTML += `
+            <div id="time-position"></div>\n
+            `;
+        };
+        var ft = document.getElementById('filetitle');
+        var al = document.getElementById('album');
+        var bu = document.getElementById('MediaPlayerIcon-icon-play');
+        var sb = document.getElementById('MediaPlayerControl-seekbar');
+        
     } else {
         container.innerHTML = '<p class="red1">Invalid width / height</p>';
     };
