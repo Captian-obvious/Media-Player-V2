@@ -47,6 +47,6 @@ window.addEventListener("load", function () {
             `;
         };
     } else {
-        container.innerHTML = '<p class='red1'>Invalid width / height</p>';
+        container.innerHTML = '<p class="red1">Invalid width / height</p>';
     };
 };
