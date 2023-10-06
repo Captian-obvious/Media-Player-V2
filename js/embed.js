@@ -25,13 +25,15 @@ window.addEventListener("load", function () {
     var info = getQuery('info');
     var vis = getQuery('visual');
     var visType = getQuery('vType');
-    if (controls==='true') {
-        h = (Number(height) || 16)
-        w = (Number(width) || 30)
-        if (h!=null && w!=null) {
-            var objHeight = h;
-            var objWidth = w;
+    h = (Number(height) || 16)
+    w = (Number(width) || 30)
+    if (h!=null && w!=null) {
+        var objHeight = h;
+        var objWidth = w;
+        if (controls==='true') {
             
         };
+    } else {
+        document.body.innerHTML = '<p class='red1'>Please provide a valid width / height</p>'
     };
 };
