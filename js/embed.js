@@ -1,4 +1,4 @@
-const tr = window.jsmediatags;
+//const tr = window.jsmediatags;
 
 function getQuery(name) {
     var val = null;
