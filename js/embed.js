@@ -33,9 +33,8 @@ window.addEventListener("load", function () {
         var objWidth = w;
         if (controls==='true') {
             container.innerHTML = `
-            <div id='MediaPlayerControls'>\n
-                <input id='MediaPlayerControl-seekbar' type='range'></input>\n
-                
+            <div id='MediaPlayerControls'>\n       
+                <input id="MediaPlayerControl-seekbar" type="range" name="rng" min="0" value="0">\n
             </div>\n
             `;
         };
