@@ -1,4 +1,9 @@
-const tr = window.jsmediatags
-window.addEventListener("load", function () {
+const tr = window.jsmediatags;
+
+function getParams() {
     
 }
+
+window.addEventListener("load", function () {
+    
+};
