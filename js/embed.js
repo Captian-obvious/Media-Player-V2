@@ -3,7 +3,7 @@
 function getQuery(name) {
     var val = null;
     if (window.location.search!=null) {
-        var currentQuery = window.location.search.split('?')[1];
+        var currentQuery = window.location.search.substr(1);
         var queryTable = currentQuery.split('&');
         for (var i=0;i<queryTable.length;i++) {
             if (queryTable[i].split('=')[0]!=null) {
