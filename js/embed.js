@@ -19,6 +19,7 @@ function getQuery(name) {
 };
 
 window.addEventListener("load", function () {
+    var container = document.getElementById('app-container');
     var width = getQuery('width');
     var height = getQuery('height');
     var controls = getQuery('controls');
@@ -34,6 +35,6 @@ window.addEventListener("load", function () {
             
         };
     } else {
-        document.body.innerHTML = '<p class='red1'>Please provide a valid width / height</p>'
+        container.innerHTML = '<p class='red1'>Please provide a valid width / height</p>'
     };
 };
