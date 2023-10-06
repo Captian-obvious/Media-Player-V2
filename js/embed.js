@@ -19,11 +19,19 @@ function getQuery(name) {
 };
 
 window.addEventListener("load", function () {
+    var width = getQuery('width');
+    var height = getQuery('height');
     var controls = getQuery('controls');
     var info = getQuery('info');
     var vis = getQuery('visual');
     var visType = getQuery('vType');
     if (controls==='true') {
-        
+        h = (Number(height) || 16)
+        w = (Number(width) || 30)
+        if (h!=null && w!=null) {
+            var objHeight = h;
+            var objWidth = w;
+            
+        };
     };
 };
