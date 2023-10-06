@@ -34,7 +34,7 @@ window.addEventListener("load", function () {
         if (vis==='true') {
             container.innerHTML += `
             <canvas id="canvas"></canvas>\n
-            `
+            `;
         };
         if (info==='true') {
             container.innerHTML += `
