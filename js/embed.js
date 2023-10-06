@@ -31,9 +31,17 @@ window.addEventListener("load", function () {
     if (h!=null && w!=null) {
         var objHeight = h;
         var objWidth = w;
+        if (vis==='true') {
+            container.innerHTML += `
+            `
+        };
         if (controls==='true') {
-            container.innerHTML = `
-            <div id='MediaPlayerControls'>\n       
+            container.innerHTML += `
+            <div id='MediaPlayerControls'>\n
+                <div id="MediaPlayerIcon-icon-play" class="MediaPlayerIcon icon-play" data-mediathumb-url="src"></div>\n
+                <div id="sound_options" class="MediaPlayerIcon icon-volume">\n
+                    <input id="volume" class="MediaPlayerControl-volume" type="range" max="100" min="0" val="100" />\n
+                </div>\n
                 <input id="MediaPlayerControl-seekbar" type="range" name="rng" min="0" value="0">\n
             </div>\n
             `;
