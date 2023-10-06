@@ -8,7 +8,7 @@ function getQuery(name) {
         for (var i=0;i<queryTable.length;i++) {
             if (queryTable[i].split('=')[0]!=null) {
                 var table = queryTable[i].split('=')
-                if (table[0]==name) {
+                if (table[0]===name) {
                     val = table[1];
                     break;
                 };
