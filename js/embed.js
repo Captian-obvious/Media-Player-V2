@@ -28,7 +28,7 @@ window.addEventListener("load", function () {
     var visType = getQuery('vType');
     var a = new Audio();
     if (height!=null && width!=null) {
-        h = (Number(height) || 16);=
+        h = (Number(height) || 16);
         w = (Number(width) || 30);
         var objHeight = h;
         var objWidth = w;
@@ -51,11 +51,11 @@ window.addEventListener("load", function () {
         if (controls!=null && controls==='true') {
             container.innerHTML += `
             <div id='MediaPlayerControls'>\n
-                <div id="MediaPlayerIcon-icon-play" class="MediaPlayerIcon icon-play" data-mediathumb-url="src" style="top: `+offset+`px;"></div>\n
-                <div id="sound_options" class="MediaPlayerIcon icon-volume" style="top: `+offset+`px;">\n
-                    <input id="volume" class="MediaPlayerControl-volume" type="range" max="100" min="0" val="100" style="top: `+barofs+`px;"/>\n
+                <div id="MediaPlayerIcon-icon-play" class="MediaPlayerIcon icon-play" data-mediathumb-url="src" style="bottom: `+offset+`px;"></div>\n
+                <div id="sound_options" class="MediaPlayerIcon icon-volume" style="bottom: `+offset+`px;">\n
+                    <input id="volume" class="MediaPlayerControl-volume" type="range" max="100" min="0" val="100" style="bottom: `+barofs+`px;"/>\n
                 </div>\n
-                <input id="MediaPlayerControl-seekbar" type="range" name="rng" min="0" value="0" style="top: `+barofs+`px;">\n
+                <input id="MediaPlayerControl-seekbar" type="range" name="rng" min="0" value="0" style="bottom: `+barofs+`px;">\n
             </div>\n
             `;
         };
