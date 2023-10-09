@@ -26,18 +26,21 @@ window.addEventListener("load", function () {
     var info = getQuery('info');
     var vis = getQuery('visual');
     var visType = getQuery('vType');
+    var theurl = getQuery('src');
     if (height!=null && width!=null) {
-        h = (Number(height) || 16);
+        h = (Number(height) || 16);=
         w = (Number(width) || 30);
         var objHeight = h;
         var objWidth = w;
         offset = (info) && 162 || 0;
         barofs = offset + 8;
         container.style.top = offset+'px';
-        container.style.width = objWidth;
-        container.style.height = objHeight;
+        container.style.width = objWidth+'px';
+        container.style.height = objHeight+'px';
         if (vis!=null && vis==='true') {
-            container.innerHTML += `<canvas id="canvas"></canvas>\n`;
+            container.innerHTML += `<canvas id="canvas" style="bottom: `+offset+`px;width:100%;height:100%;"></canvas>\n`;
+            offset = 0;
+            barofs = offset + 8;
         };
         if (info!=null && info==='true') {
             container.innerHTML += `
@@ -48,11 +51,11 @@ window.addEventListener("load", function () {
         if (controls!=null && controls==='true') {
             container.innerHTML += `
             <div id='MediaPlayerControls'>\n
-                <div id="MediaPlayerIcon-icon-play" class="MediaPlayerIcon icon-play" data-mediathumb-url="src" style="top: `+offset+`px"></div>\n
-                <div id="sound_options" class="MediaPlayerIcon icon-volume" style="top: `+offset+`px">\n
-                    <input id="volume" class="MediaPlayerControl-volume" type="range" max="100" min="0" val="100" style="top: `+barofs+`px"/>\n
+                <div id="MediaPlayerIcon-icon-play" class="MediaPlayerIcon icon-play" data-mediathumb-url="src" style="bottom: `+offset+`px;"></div>\n
+                <div id="sound_options" class="MediaPlayerIcon icon-volume" style="bottom: `+offset+`px;">\n
+                    <input id="volume" class="MediaPlayerControl-volume" type="range" max="100" min="0" val="100" style="bottom: `+barofs+`px;"/>\n
                 </div>\n
-                <input id="MediaPlayerControl-seekbar" type="range" name="rng" min="0" value="0" style="top: `+barofs+`px">\n
+                <input id="MediaPlayerControl-seekbar" type="range" name="rng" min="0" value="0" style="bottom: `+barofs+`px;">\n
             </div>\n
             `;
         };
