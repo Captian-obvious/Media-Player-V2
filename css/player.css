@@ -119,11 +119,10 @@
     left:191px;
 }
 #volume {
-    width: 15px;
-    height: 70px;
+    width: 70px;
+    height: 9px;
     position: fixed;
-    top:90px;
-    left: 196px;
-    -webkit-appearance: slider-vertical;
+    top:170px;
+    left: 220px;
     color: #980000;
 }
