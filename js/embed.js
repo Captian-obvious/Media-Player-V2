@@ -68,11 +68,10 @@ window.addEventListener("load", function () {
         var sb = document.getElementById('sound_options');
         var vo = document.getElementById('volume')
         var tp = document.getElementById('time-position')
-        if (al!=null){
-            
-        };
-        if (bu!=null){
-            
+        if (theurl!=null){
+            a.src = theurl
+        } else {
+            container.innerHTML = '<p class="red1">Invalid audio source.</p>'
         };
     } else {
         container.innerHTML = '<p class="red1">Invalid width / height</p>';
