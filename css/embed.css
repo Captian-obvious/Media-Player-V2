@@ -119,10 +119,10 @@
     left:191px;
 }
 #volume {
-    width: 15px;
-    height: 70px;
+    width: 70px;
+    height: 15px;
     position: fixed;
     top:170px;
-    left: 200px;
+    left: 220px;
     color: #980000;
 }
