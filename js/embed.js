@@ -31,7 +31,7 @@ window.addEventListener("load", function () {
         w = (Number(width) || 30);
         var objHeight = h;
         var objWidth = w;
-        offset = (!info) && 0 || 146;
+        offset = (info) && 162 || 0;
         barofs = offset + 8;
         container.style.top = offset+'px';
         container.style.width = objWidth;
