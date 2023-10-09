@@ -34,9 +34,9 @@ window.addEventListener("load", function () {
         var objWidth = w;
         offset = (info) && 162 || 0;
         barofs = offset + 8;
-        container.style.top = offset+'px';
-        container.style.width = objWidth+'px';
-        container.style.height = objHeight+'px';
+        container.style.top = offset;
+        container.style.width = objWidth;
+        container.style.height = objHeight;
         if (vis!=null && vis==='true') {
             container.innerHTML += `<canvas id="canvas" style="bottom: `+offset+`px;width:100%;height:100%;"></canvas>\n`;
             offset = 0;
