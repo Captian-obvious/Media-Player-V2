@@ -67,7 +67,6 @@ window.addEventListener("load", function () {
         var bu = document.getElementById('MediaPlayerIcon-icon-play');
         var sb = document.getElementById('sound_options');
         var vo = document.getElementById('volume')
-        var vi = document.getElementById('MediaPlayerIcon icon-volume')
         var tp = document.getElementById('time-position')
         if (al!=null){
             
