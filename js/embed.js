@@ -38,7 +38,7 @@ window.addEventListener("load", function () {
         container.style.width = objWidth;
         container.style.height = objHeight;
         if (vis!=null && vis==='true') {
-            container.innerHTML += `<canvas id="canvas" style="bottom: `+offset+`px;width:100%;height:100%;"></canvas>\n`;
+            container.innerHTML += `<canvas id="canvas"></canvas>\n`;
             offset = 0;
             barofs = offset + 8;
         };
@@ -66,8 +66,8 @@ window.addEventListener("load", function () {
         var al = document.getElementById('album');
         var bu = document.getElementById('MediaPlayerIcon-icon-play');
         var sb = document.getElementById('sound_options');
-        var vo = document.getElementById('volume')
-        var tp = document.getElementById('time-position')
+        var vo = document.getElementById('volume');
+        var tp = document.getElementById('time-position');
     } else {
         container.innerHTML = '<p class="red1">Invalid width / height</p>';
     };
