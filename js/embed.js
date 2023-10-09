@@ -32,7 +32,7 @@ window.addEventListener("load", function () {
         var objHeight = h;
         var objWidth = w;
         offset = (!info) && 0 || 146;
-        barofs = offset + 24;
+        barofs = offset + 8;
         container.style.top = offset+'px';
         container.style.width = objWidth;
         container.style.height = objHeight;
