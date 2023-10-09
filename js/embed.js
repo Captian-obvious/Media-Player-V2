@@ -26,7 +26,6 @@ window.addEventListener("load", function () {
     var info = getQuery('info');
     var vis = getQuery('visual');
     var visType = getQuery('vType');
-    var theurl = getQuery('src');
     var a = new Audio();
     if (height!=null && width!=null) {
         h = (Number(height) || 16);=
@@ -69,12 +68,6 @@ window.addEventListener("load", function () {
         var sb = document.getElementById('sound_options');
         var vo = document.getElementById('volume')
         var tp = document.getElementById('time-position')
-        if (theurl!=null){
-            a.src = theurl
-            a.load()
-        } else {
-            container.innerHTML = '<p class="red1">Invalid audio source.</p>'
-        };
     } else {
         container.innerHTML = '<p class="red1">Invalid width / height</p>';
     };
