@@ -71,7 +71,7 @@
     cursor:pointer;
 }
 #MediaPlayerControl-seekbar {
-    width: 150px;
+    width: 152px;
     height: 9px;
     position: fixed;
     top:170px;
