@@ -31,6 +31,8 @@ window.addEventListener("load", function () {
         w = (Number(width) || 30);
         var objHeight = h;
         var objWidth = w;
+        container.style.width = objWidth;
+        container.style.height = objHeight;
         if (vis!=null && vis==='true') {
             container.innerHTML += `<canvas id="canvas"></canvas>\n`;
         };
