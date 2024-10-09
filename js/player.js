@@ -117,9 +117,8 @@ window.addEventListener("load", function() {
                 setTimeout(function(){
                     debounce = true;
                 },100);
-            }
-        }
-        replaceurl("player=true&input=" + input);
+            };
+        };
         playNext(audio,files,0);
         context = context || new AudioContext();
         console.log(context);
