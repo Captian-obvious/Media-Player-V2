@@ -218,8 +218,10 @@ window.addEventListener("load", function() {
                 button.className = "MediaPlayerIcon icon-play";
                 dur.value = dur.max;
                 index += 1;
-                if (files.length > 1) {
+                if (files.length > 1 && index<=files.length) {
                     playNext(audio,files,index);
+                }else{
+                    console.log('END OF PLAY QUEUE');
                 };
             })
         audio.addEventListener("pause", function() {
