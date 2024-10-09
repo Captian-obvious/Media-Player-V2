@@ -70,10 +70,10 @@ window.addEventListener("load", function() {
         var SRC = dataimage.getAttribute("data-mediathumb-url");
         audio.src = SRC;
         audio.load();
-        function playNext(audio,i) {
+        function playNext(audio,queue,i) {
             if (debounce === true) {
                 debounce = false
-                var input = files[i].name;
+                var input = queue[i].name;
                 dataimage.setAttribute("data-mediathumb-url", URL.createObjectURL(files[i]));
                 var SRC = dataimage.getAttribute("data-mediathumb-url");
                 audio.src = SRC;
@@ -119,42 +119,8 @@ window.addEventListener("load", function() {
                 },100);
             }
         }
-        var input = files[0].name;
-        if (filetitle.textContent != "Unknown Artist - " + files[0].name) {
-            filetitle.textContent = "Unknown Artist - " + files[0].name;
-        };
-        if (album.style.backgroundImage != "url(../../images/default/default-album-icon.png)") {
-            album.style.backgroundImage = "url(../../images/default/default-album-icon.png)";
-        };
-        if (album2.src != "../../images/default/default_background.png") {
-            album2.src = "../../images/default/default_background.png";
-        };
-        ID3.read(files[0], {
-            onSuccess: function(tag) {
-                console.log(tag);
-                const data = tag.tags.picture.data;
-                const format = tag.tags.picture.format;
-                const title = tag.tags.title;
-                const artist = tag.tags.artist;
-                if (data.length != 0 && format != null) {
-                    let str = "";
-                    for (var o = 0; o < data.length; o++) {
-                        str += String.fromCharCode(data[o]);
-                    };
-                    var url = "data:" + format + ";base64," + window.btoa(str);
-                    album.style.backgroundImage = "url(" + url + ")";
-                    album2.src = url;
-                };
-                if (title != "" && artist != "") {
-                    filetitle.textContent = artist + " - " + title;
-                };
-            },
-            onError: function(error) {
-                console.log(error);
-            },
-        });
         replaceurl("player=true&input=" + input);
-        audio.play();
+        playNext(audio,files,0);
         context = context || new AudioContext();
         console.log(context);
         src = src || context.createMediaElementSource(audio);
@@ -253,7 +219,7 @@ window.addEventListener("load", function() {
                 dur.value = dur.max;
                 index += 1;
                 if (files.length > 1) {
-                    playNext(audio,index);
+                    playNext(audio,files,index);
                 };
             })
         audio.addEventListener("pause", function() {
