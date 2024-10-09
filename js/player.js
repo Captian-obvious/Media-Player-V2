@@ -42,6 +42,7 @@ window.addEventListener("load", function() {
     var src;
     var analyser;
     var gn;
+    window.files=[];
     console.log(audio);
     var dur = document.getElementById("MediaPlayerControl-seekbar");
     var album = document.getElementById("album");
@@ -61,7 +62,7 @@ window.addEventListener("load", function() {
         return min + ":" + sec
     };
     window.MediaPlayer.Play = function(thefiles) {
-        var files = [];
+        files = files || [];
         files = thefiles;
         var index=0;
         var colorValue = "#ff0000";
