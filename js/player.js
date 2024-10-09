@@ -38,6 +38,10 @@ window.addEventListener("load", function() {
     document.getElementById("media-container").innerHTML = `<img id="img2"></img>\n<canvas id="canvas"></canvas>\n<div id="main">\n    <div id="album">\n        <div id="MediaPlayerControls">\n            <div id="MediaPlayerIcon-icon-play" class="MediaPlayerIcon icon-play" data-mediathumb-url="src"></div>\n            <div id="sound_options" class="MediaPlayerIcon icon-volume">\n                <input id="volume" class="MediaPlayerControl-volume" type="range" max="100" min="0" />\n            </div>\n        </div>\n        <input id="MediaPlayerControl-seekbar" type="range" name="rng" min="0" value="0">\n       <div id="time-position"></div>\n    </div>\n</div>\n <script src="../../js/rangeRunner.js"></script>\n`;
     replaceurl("player=" + urlParameter);
     var audio = new Audio();
+    var context;
+    var src;
+    var analyser;
+    var gn;
     console.log(audio);
     var dur = document.getElementById("MediaPlayerControl-seekbar");
     var album = document.getElementById("album");
@@ -150,10 +154,10 @@ window.addEventListener("load", function() {
         });
         replaceurl("player=true&input=" + input);
         audio.play();
-        var context = new AudioContext();
+        context = context || new AudioContext();
         console.log(context);
-        var src = context.createMediaElementSource(audio);
-        var analyser = context.createAnalyser();
+        src = src || context.createMediaElementSource(audio);
+        analyser = analyser || context.createAnalyser();
         var loud = 0;
         var canvas = document.getElementById("canvas");
         var scale = window.devicePixelRatio; 
@@ -161,7 +165,7 @@ window.addEventListener("load", function() {
         canvas.height = window.innerHeight;
         var ctx = canvas.getContext("2d");
         src.connect(analyser);
-        var gn = context.createGain();
+        gn = gn || context.createGain();
         analyser.connect(gn);
         gn.connect(context.destination);
         var fft_Size = 512;
