@@ -192,6 +192,7 @@ window.addEventListener("load", function() {
         renderFrame();
         audio.play();
         if (!buttons_connected){
+            buttons_connected=true;
             dur.addEventListener("change", function() {
                 audio.currentTime = dur.value;
             });
