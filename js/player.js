@@ -52,7 +52,8 @@ window.addEventListener("load", function() {
     var position = document.getElementById("time-position");
     var setting = document.getElementById("sound_options");
     var vol = document.getElementById("volume");
-    var debounce = true
+    var debounce = true;
+    var buttons_connected=false;
     function formatTime(val) {
         var min = Math.floor(val / 60);
         var sec = Math.floor(val - min * 60);
@@ -190,45 +191,47 @@ window.addEventListener("load", function() {
         };
         renderFrame();
         audio.play();
-        dur.addEventListener("change", function() {
-            audio.currentTime = dur.value;
-        });
-        setting.addEventListener("click", function() {
-            if (vol.hidden == true) {
-                vol.hidden = false;
-            } else {
-                vol.hidden = true;
-            }
-        });
-        audio.addEventListener("timeupdate", function() {
-            dur.value = audio.currentTime;
-            dur.max = audio.duration;
-        });
-        button.addEventListener("click", function() {
-            if (this.className == "MediaPlayerIcon icon-pause") {
-                this.className = "MediaPlayerIcon icon-play";
-                audio.pause()
-            } else {
-                this.className = "MediaPlayerIcon icon-pause";
-                audio.play();
-            };
-        });
-        audio.addEventListener("ended", function() {
-                button.className = "MediaPlayerIcon icon-play";
-                dur.value = dur.max;
-                index += 1;
-                if (files.length>1 && index<files.length) {
-                    playNext(audio,files,index);
-                }else{
-                    console.log('END OF PLAY QUEUE');
+        if (!buttons_connected){
+            dur.addEventListener("change", function() {
+                audio.currentTime = dur.value;
+            });
+            setting.addEventListener("click", function() {
+                if (vol.hidden == true) {
+                    vol.hidden = false;
+                } else {
+                    vol.hidden = true;
+                }
+            });
+            audio.addEventListener("timeupdate", function() {
+                dur.value = audio.currentTime;
+                dur.max = audio.duration;
+            });
+            button.addEventListener("click", function() {
+                if (this.className == "MediaPlayerIcon icon-pause") {
+                    this.className = "MediaPlayerIcon icon-play";
+                    audio.pause()
+                } else {
+                    this.className = "MediaPlayerIcon icon-pause";
+                    audio.play();
                 };
-            })
-        audio.addEventListener("pause", function() {
-            button.className = "MediaPlayerIcon icon-play"
-        });
-        audio.addEventListener("play", function() {
-            button.className = "MediaPlayerIcon icon-pause";
-        });
+            });
+            audio.addEventListener("ended", function() {
+                    button.className = "MediaPlayerIcon icon-play";
+                    dur.value = dur.max;
+                    index += 1;
+                    if (files.length>1 && index<files.length) {
+                        playNext(audio,files,index);
+                    }else{
+                        console.log('END OF PLAY QUEUE');
+                    };
+                })
+            audio.addEventListener("pause", function() {
+                button.className = "MediaPlayerIcon icon-play"
+            });
+            audio.addEventListener("play", function() {
+                button.className = "MediaPlayerIcon icon-pause";
+            });
+        };
     };
     file.onchange = function(){
         MediaPlayer.Play(this.files);
